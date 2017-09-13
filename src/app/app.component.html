@@ -1,50 +1,75 @@
-<md-card class="example-card">
-  <md-card-header>
-    <md-card-title>Reserved price</md-card-title>
-  </md-card-header>
-  <img md-card-image src="assets/auction.jpg" alt="Auction photo">
-  <md-card-content>
-    <h1>{{reservedPrice}} $</h1>
-  </md-card-content>
-</md-card>
+<div class="auction-spike">
+  <div class="main-content">
+    <md-card class="auction-object">
+      <md-card-header>
+        <md-card-title><h2>Reserved price</h2></md-card-title>
+      </md-card-header>
+      <img md-card-image src="assets/auction.jpg" alt="Auction photo">
+      <md-card-content>
+        <h1>{{reservedPrice}} $</h1>
+      </md-card-content>
+    </md-card>
 
-<form (ngSubmit)="broadcastBid(bidForm)"
-      #bidForm="ngForm">
-  <md-input-container>
-    <input mdInput required
-           id="user"
-           name="user"
-           type="text"
-           placeholder="Enter your name"
-           [(ngModel)]="currentUser"
-           [disabled]="currentUserEntered"
-           (focusout)="currentUserEntered = !(!currentUser)"
-    />
-  </md-input-container>
-  <md-input-container>
-    <input mdInput required
-           id="bid"
-           name="bid"
-           type="number"
-           [(ngModel)]="currentBid"
-           bidMin="{{getHigherBid()}}"
-           value="reservedPrice"
-           #bid="ngModel"
-    />
-    <div *ngIf="bid.errors && (bid.dirty || bid.touched)"
-         class="error">
-      <p [hidden]="!bid.errors.bidMin">
-        Bid must be bigger. {{bid.value}} is too low.
-      </p>
-    </div>
-  </md-input-container>
-  <button type="submit" md-raised-button
-          [disabled]="!bidForm.form.valid">
-    Place your bid
-  </button>
-</form>
-<ul>
-  <ng-template ngFor let-bid [ngForOf]="bids" let-i="index">
-    <li>{{bid.userName}} : {{bid.bidValue}}</li>
-  </ng-template>
-</ul>
+    <md-card class="bid-history">
+      <md-card-header>
+        <md-card-title><h2>Your bet</h2></md-card-title>
+      </md-card-header>
+      <md-card-content>
+        <form class="bid-form" novalidate
+              (ngSubmit)="broadcastBid(bidForm)"
+              #bidForm="ngForm">
+          <md-input-container>
+            <input mdInput required autofocus
+                   id="user"
+                   name="user"
+                   type="text"
+                   placeholder="Enter your name"
+                   [(ngModel)]="currentUser"
+                   [disabled]="currentUserEntered"
+                   (focusout)="currentUserEntered = !(!currentUser)"
+            />
+          </md-input-container>
+          <md-input-container>
+            <input mdInput required autofocus
+                   id="bid"
+                   name="bid"
+                   type="number"
+                   [(ngModel)]="currentBid"
+                   bidMin="{{getHigherBid()}}"
+                   value="reservedPrice"
+                   #bid="ngModel"
+            />
+            <div *ngIf="bid.errors && (bid.dirty || bid.touched)"
+                 class="error">
+              <p [hidden]="!bid.errors.bidMin">
+                Bid must be higher than {{getHigherBid()}}.
+              </p>
+            </div>
+          </md-input-container>
+          <button type="submit" md-raised-button
+                  [disabled]="!bidForm.form.valid">
+            Place your bid
+          </button>
+        </form>
+      </md-card-content>
+    </md-card>
+
+    <md-card class="bid-history">
+      <md-card-header>
+        <md-card-title><h2>Bid History</h2></md-card-title>
+      </md-card-header>
+      <md-card-content>
+        <md-input-container>
+          <textarea mdInput mdTextareaAutosize mdAutosizeMinRows="5" [ngModel]="getFormattedBids()"></textarea>
+        </md-input-container>
+      </md-card-content>
+    </md-card>
+  </div>
+  <div class="the-winner-is">
+    <button md-raised-button color="primary"
+            (click)="showTheWinner()"
+            [disabled]="!bids.length">
+      Get the winner
+    </button>
+  </div>
+</div>

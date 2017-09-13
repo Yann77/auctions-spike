@@ -1,0 +1,9 @@
+<h2 md-dialog-title>The winner is</h2>
+<md-dialog-content>
+  {{bid.userName}} with winning price of {{bid.bidValue}}
+</md-dialog-content>
+<md-dialog-actions>
+  <button md-raised-button color="primary" (click)="dialogRef.close()">
+    Close
+  </button>
+</md-dialog-actions>

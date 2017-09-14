@@ -1,7 +1,9 @@
+# START
+To run the project use 'npm i' then 'npm start' then go to 'localhost:3000'
+
 # AuctionsSpike
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.1.
-To run the project use 'npm i' then 'npm start' then go to 'localhost:3000'
 
 ## Development server
 

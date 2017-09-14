@@ -4,7 +4,7 @@ To run the project use 'npm i' then 'npm start' and reach 'localhost:3000' on mu
 TODO: 
 * use timeout for bid session instead of a button
 * unit testing with Angular Material 2
-* merge express server startup with angular cli ng serve command
+* merge express server startup with angular cli 'ng serve' command
 
 # AuctionsSpike
 

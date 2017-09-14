@@ -60,7 +60,12 @@
       </md-card-header>
       <md-card-content>
         <md-input-container>
-          <textarea mdInput mdTextareaAutosize mdAutosizeMaxRows="15" [ngModel]="getFormattedBids()"></textarea>
+          <textarea mdInput
+                    mdTextareaAutosize
+                    mdAutosizeMaxRows="15"
+                    [ngModel]="getFormattedBids()"
+                    [disabled]="true">
+          </textarea>
         </md-input-container>
       </md-card-content>
     </md-card>

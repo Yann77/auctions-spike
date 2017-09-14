@@ -2,7 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import {AuctionService} from './auction.service';
-import {MaterialModule, MdButtonModule, MdCardModule, MdDialogModule, MdInputModule} from '@angular/material';
+import {
+  MaterialModule, MdButtonModule, MdCardModule, MdDialogModule, MdIconModule,
+  MdInputModule,
+} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule} from '@angular/forms';
 import { MinValidatorDirective } from './min-validator.directive';
@@ -22,6 +25,7 @@ import { WinnerDialogComponent } from './winner-dialog/winner-dialog.component';
     FormsModule,
     MdCardModule,
     MdDialogModule,
+    MdIconModule,
   ],
   entryComponents: [
     WinnerDialogComponent,

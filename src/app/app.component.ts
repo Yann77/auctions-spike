@@ -62,8 +62,4 @@ export class AppComponent implements OnInit, OnDestroy {
       data: {userName: winnerUser.userName, bidValue: winnerPrice || this.reservedPrice},
     });
   }
-
-  resetBidHistory(): void {
-    this.bids = [];
-  }
 }

@@ -1,5 +1,5 @@
 # START
-To run the project use 'npm i' then 'npm start' then go to 'localhost:3000'
+To run the project use 'npm i' then 'npm start' then go to 'localhost:3000' on multiple tabs so you can test auction spike with different user names.
 
 # AuctionsSpike
 

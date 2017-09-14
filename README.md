@@ -1,5 +1,10 @@
 # START
-To run the project use 'npm i' then 'npm start' then go to 'localhost:3000' on multiple tabs so you can test auction spike with different user names.
+To run the project use 'npm i' then 'npm start' and reach 'localhost:3000' on multiple tabs so you can test auction spike with different user names.
+
+TODO: 
+* use timeout for bid session instead of a button
+* unit testing with Angular Material 2
+* merge express server startup with angular cli ng serve command
 
 # AuctionsSpike
 

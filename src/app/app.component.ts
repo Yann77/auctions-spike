@@ -54,11 +54,12 @@ export class AppComponent implements OnInit, OnDestroy {
   showTheWinner(): void {
     const winnerUser: IBid = this.bids.reduce((max, p) => p.bidValue > max.bidValue ? p : max, this.bids[0]);
     const winnerPrice: Number = this.bids.filter((bid) => bid.userName !== winnerUser.userName)
-      .reduce((max, p) => p.bidValue > max ? p.bidValue : max, this.bids[0].bidValue);
+      .reduce((max, p) => p.bidValue > max ? p.bidValue : max, this.bids[0].userName !== this.currentUser ?
+        this.bids[0].bidValue : this.reservedPrice);
 
     this.dialog.open(WinnerDialogComponent, {
       width: '300px',
-      data: {userName: winnerUser.userName, bidValue: winnerPrice},
+      data: {userName: winnerUser.userName, bidValue: winnerPrice || this.reservedPrice},
     });
   }
 }
